@@ -22,11 +22,11 @@
 package main
 
 import (
-	g "github.com/jgranstrom/gonodepkg"
-	json "github.com/jgranstrom/go-simplejson"
+	json "github.com/biblioclasta/go-simplejson"
+	g "github.com/biblioclasta/gonodepkg"
 )
 
-func main() {	
+func main() {
 	g.Start(func(cmd *json.Json) (resp *json.Json) {
 		panic(1)
 	})

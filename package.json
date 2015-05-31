@@ -12,7 +12,8 @@
     "url": "https://github.com/biblioclasta/gonode.git"
   },
   "devDependencies": {
-    "nodeunit": "*"
+    "nodeunit": "*",
+    "q": "^1.4.1"
   },
   "keywords": [
     "node",

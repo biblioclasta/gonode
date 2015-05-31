@@ -22,12 +22,19 @@
 package main
 
 import (
-	g "github.com/jgranstrom/gonodepkg"
-	json "github.com/jgranstrom/go-simplejson"
+	"time"
+
+	json "github.com/biblioclasta/go-simplejson"
+	g "github.com/biblioclasta/gonodepkg"
 )
 
-func main() {	
+func main() {
 	g.Start(func(cmd *json.Json) (resp *json.Json) {
+		//data := cmd.Get("index").MustString("no")
+		delay, err := cmd.Get("index").ParseInt()
+		if err == nil {
+			time.Sleep(time.Duration(1+delay%2) * time.Second)
+		}
 		return cmd
 	})
 }
