@@ -193,7 +193,7 @@ exports.testCommandLimit = function (test) {
 exports.testCommandTimeout = function (test) {
   var aCompleted,
     bCompleted;
-  
+
   var goLimited = new Go({
     path: './test/delayone.go',
     initAtOnce: true
