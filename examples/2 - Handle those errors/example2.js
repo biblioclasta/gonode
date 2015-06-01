@@ -1,13 +1,13 @@
 // Example 2 - There are a couple of possible errors coming from gonode that should be handled
 
-var Go = require('../../lib/gonode').Go;
+var Go = require('../../lib/gonode');
 
-var go = new Go({path: 'example2.go', initAtOnce: true}, function(err) {	
+var go = new Go({path: 'example2.go', initAtOnce: true}, function(err) {
 	if(err) {
 		// Initialization failed, possibly wrong path to go-file
 		console.log(err);
 		return;
-	}	
+	}
 
 	// gonode emits error events upon external (Go) or internal parser (JSON) errors
 	go.on('error', function(err) {
@@ -19,7 +19,7 @@ var go = new Go({path: 'example2.go', initAtOnce: true}, function(err) {
 
 	// Execute command #1 which we have constructed to timeout
 	go.execute({text: 'delay me'}, function(result, response) {
-		if(result.timeout) { 
+		if(result.timeout) {
 			// Execution time may exceed the user set or default time limit for commands
 			console.log('The \'delay me\' command timed out!\n\n');
 		} else {

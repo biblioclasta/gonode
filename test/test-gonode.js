@@ -24,7 +24,7 @@
 // Run all tests with 'nodeunit test'
 
 'use strict';
-var Go = require('../lib/gonode.js').Go;
+var Go = require('../lib/gonode.js');
 var Q = require('q');
 var goInstance; // Use for tests after testInit() to avoid having to start several processes
 
@@ -51,7 +51,7 @@ exports.testInit = function (test) {
     // Does not fail init if file exists
     // Also setup the test instance to use for further tests
     goInstance = new Go({
-      path: './test/echo.go'
+      path: './test/echo'
     });
     goInstance.on('error', printError);
     goInstance.on('error', function (err) {

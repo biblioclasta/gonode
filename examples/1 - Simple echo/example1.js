@@ -1,9 +1,10 @@
+/*jshint node: true*/
 // Example 1 - Simply echo the command sent to Go back to node
+'use strict';
+var go = require('../../lib/gonode').create({path: 'example1.go'});
 
-var Go = require('../../lib/gonode').Go;
 
-var go = new Go({path: 'example1.go'});
-go.init(initComplete) // We must always initialize gonode before executing any commands
+go.init(initComplete); // We must always initialize gonode before executing any commands
 
 // Called when gonode has been fully initialized and are accepting commands
 function initComplete(err) {
@@ -18,9 +19,9 @@ function initComplete(err) {
 // Called when Go sends us a response for the command above
 function gotResponse(result, response) {
 	if(result.ok) { // Check if response is ok
-		// In our case we just echo the command, so we can get our text back	
+		// In our case we just echo the command, so we can get our text back
 		console.log('Go responded: ' + response.text);
-	}	
+	}
 }
 
 // Shorthand version of the above
@@ -28,7 +29,7 @@ function gotResponse(result, response) {
 /*
 var go = new Go({path: 'example1.go', initAtOnce: true}, function(err) {
 	go.execute({text: 'Hello world from gonode!'}, function(result, response) {
-		console.log('Go responded: ' + response.text);		
+		console.log('Go responded: ' + response.text);
 	});
 	go.close();
 });

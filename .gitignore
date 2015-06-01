@@ -167,3 +167,6 @@ pip-log.txt
 .DS_Store
 
 npm-debug.log
+test/panic
+test/echo
+test/delayone
