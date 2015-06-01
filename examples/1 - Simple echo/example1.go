@@ -4,11 +4,11 @@ package main
 // and give it a name for easy access.
 // Also import the json package to handle the command data
 import (
-	gonode "github.com/jgranstrom/gonodepkg"
-	json "github.com/jgranstrom/go-simplejson"
+	json "github.com/biblioclasta/go-simplejson"
+	gonode "github.com/biblioclasta/gonodepkg"
 )
 
-func main() {	
+func main() {
 	// Start the gonode listener which is an infinite loop until closed
 	// It takes the processor function as only argument
 	gonode.Start(process)

@@ -3,8 +3,8 @@ package main
 import (
 	"time"
 
-	json "github.com/jgranstrom/go-simplejson"
-	gonode "github.com/jgranstrom/gonodepkg"
+	json "github.com/biblioclasta/go-simplejson"
+	gonode "github.com/biblioclasta/gonodepkg"
 )
 
 func main() {

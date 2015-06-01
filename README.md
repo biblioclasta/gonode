@@ -34,7 +34,7 @@ Basic requirements in node.js:
 ```js
 var Go = require('gonode').Go;
 var go = new Go({
-	path	: 'gofile.go',
+	path	: 'gofile.go'
 });
 
 go.init(function(err) {
