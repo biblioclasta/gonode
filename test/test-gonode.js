@@ -156,7 +156,6 @@ exports.testCommandLimit = function (test) {
   var goLimited = new Go({
     path: './test/delayone.go',
     maxCommandsRunning: 1,
-    initAtOnce: true
   }, function (err) {
     if (err) {
       console.log(err);
@@ -195,8 +194,7 @@ exports.testCommandTimeout = function (test) {
     bCompleted;
 
   var goLimited = new Go({
-    path: './test/delayone.go',
-    initAtOnce: true
+    path: './test/delayone.go'
   }, function (err) {
     goLimited.on('error', printError);
     goLimited.execute({
@@ -234,8 +232,7 @@ exports.testCommandTimeout = function (test) {
 exports.testPanicHandling = function (test) {
 
   var goPanic = new Go({
-    path: './test/panic.go',
-    initAtOnce: true
+    path: './test/panic.go'
   }, function (err) {
     // goPanic.on('error', printError); Will print expected panic
     var hasError,
@@ -273,8 +270,7 @@ exports.testPanicHandling = function (test) {
 // Test command terminations
 exports.testCommandTerminated = function (test) {
   var goLimited = new Go({
-    path: './test/delayone.go',
-    initAtOnce: true
+    path: './test/delayone.go'
   }, function (err) {
     goLimited.on('error', printError);
     goLimited.execute({

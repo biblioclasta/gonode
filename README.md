@@ -56,7 +56,7 @@ import (
 	json "github.com/jgranstrom/go-simplejson"
 )
 
-func main() {	
+func main() {
 	gonode.Start(process)
 }
 
@@ -68,14 +68,13 @@ func process(cmd *json.Json) (response *json.Json) {
 
 ## Initializing gonode
 
-You can initialize gonode either by explicitly calling `init()` or by settings the option `initAtOnce` to `true` and optionally provide the initialization callback directly in to Go constructor.
+You can initialize gonode either by explicitly calling `init()` or by providing the initialization callback directly in to Go constructor.
 
 ```js
 var Go = require('gonode').Go;
 
 var options = {
-	path		: 'gofile.go',
-	initAtOnce	: true,	
+	path		: 'gofile.go'
 }
 var go = new Go(options, function(err) {
 	if (err) throw err;
@@ -89,10 +88,9 @@ var go = new Go(options, function(err) {
 As you can see `close()` should be called when you no longer need the Go object and will gracefully end the Go process when all executing commands has finished.
 
 ###### Initialization options
-* `path`: The path of the go-file to execute. *(Required)*
-* `initAtOnce`: Will initialize Go at once when object created if `true`, and allows initialization callback to be provided in constructor. *(Default: `false`)*
+* `path`: The path of the go-file to execute or executable file using the library. *(Required)*
 * `maxCommandsRunning`: Specifies the maximum number of commands allowed to be running simultaneously, may impact performance differently depending on Go implementation. *(Default: `10`)*
-* `defaultCommandTimeoutSec`: Specifies the default command timeout in seconds to be used when not specified in command options. *(Default: `5`)*
+* `defaultCommandTimeoutSec`: Specifies the default command timeout in seconds to be used when not specified in command options. *(Default: `30`)*
 * `cwd`: The working directory of the Go process. *(Default: Current working directory of the node process)*
 
 ## Executing commands
@@ -107,7 +105,7 @@ go.execute({commandText: 'Hello world from gonode!'}, function(result, response)
 });
 ```
 
-`execute()` accepts a JSON object to be sent to the Go process, and a callback which will be called when Go returns with a result or when the command reaches a timeout limit or is terminated. 
+`execute()` accepts a JSON object to be sent to the Go process, and a callback which will be called when Go returns with a result or when the command reaches a timeout limit or is terminated.
 `result` represents the result of the execution of this command.
 `response` will contain a JSON object with the result of the response only if `result.ok` is set to `true`.
 
@@ -123,7 +121,7 @@ Note that the JSON object to send can contain anything containable in JSON and i
 **Processing the command in Go** is possibly even simpler:
 
 ```go
-func process(cmd *json.Json) (response *json.Json) {	
+func process(cmd *json.Json) (response *json.Json) {
 	response, m := json.MakeMap()
 
 	if(cmd.Get("commandText").MustString() == "Hello") {
@@ -149,7 +147,7 @@ go.execute({text: 'Hello world from gonode!'}, function(result, response) {
 		console.log('Go responded: ' + response.text);
 	} else if(result.timeout) {
 		console.log('Command timed out!');
-	}	
+	}
 }, {commandTimeoutSec: 60}); // This command will execute for up to one minute before timing out
 ```
 
@@ -262,8 +260,7 @@ gonode comes with some error handling concerning the Go process as well as JSON 
 var Go = require('gonode').Go;
 
 var go = new Go({
-	path		: 'gofile.go',
-	initAtOnce	: true,	
+	path		: 'gofile.go'
 }, function(err) {
 	if (err) throw err; // This may be a failure to locate go-file
 
@@ -292,7 +289,7 @@ var go = new Go({
 * Improved error handling
 * Additional benchmarks and examples
 
-[gonodepkg]: https://github.com/jgranstrom/gonodepkg
-[go-simplejson]: https://github.com/jgranstrom/go-simplejson
+[gonodepkg]: https://github.com/biblioclasta/gonodepkg
+[go-simplejson]: https://github.com/biblioclasta/go-simplejson
 [Go]: http://golang.org/doc/install#install
 [GOPATH]: http://golang.org/doc/code.html#tmp_2
