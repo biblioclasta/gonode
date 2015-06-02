@@ -22,7 +22,7 @@ npm install gonode
 *Note:* Even though the required Go packages are installed automatically with gonode you may find yourself in need of installing or updating them explicitly. In that case do so by running:
 
 ```bash
-go get github.com/jgranstrom/gonodepkg github.com/jgranstrom/go-simplejson
+go get github.com/biblioclasta/gonodepkg github.com/biblioclasta/go-simplejson
 ```
 
 ## Introduction
@@ -52,8 +52,8 @@ Basic requirements in Go (gofile.go):
 package main
 
 import (
-	gonode "github.com/jgranstrom/gonodepkg"
-	json "github.com/jgranstrom/go-simplejson"
+	gonode "github.com/biblioclasta/gonodepkg"
+	json "github.com/bibloclasta/go-simplejson"
 )
 
 func main() {

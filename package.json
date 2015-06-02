@@ -24,5 +24,8 @@
   "author": "John Granström <granstrom.john@gmail.com>",
   "license": "MIT",
   "gitHead": "34a011c73e39ac8beddc5fabe9cdc11b2167c40d",
-  "readmeFilename": "README.md"
+  "readmeFilename": "README.md",
+  "dependencies": {
+    "lodash": "^3.9.3"
+  }
 }

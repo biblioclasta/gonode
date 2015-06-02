@@ -1,8 +1,8 @@
 package main
 
 import (
-	gonode "github.com/jgranstrom/gonodepkg"
-	json "github.com/jgranstrom/go-simplejson"
+	json "github.com/biblioclasta/go-simplejson"
+	gonode "github.com/biblioclasta/gonodepkg"
 )
 
 func main() {
